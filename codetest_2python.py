@@ -1,4 +1,5 @@
 
+import collections
 
 # List Comprehension
 # 리스트 압축표현
@@ -37,8 +38,48 @@ def print_test():
     fruit = 'Melon'
     print(f'{idx+1}:  {fruit}')
 
+# Tip Function annotation - 함수 annotation 은 주석같은 기능으로 코드에 영향을 주는 강제사항은 아님.
+# :expression - 함수 매개변수
+# -> expression - 함수 return
+#def numMatchingSubseq(self, S: str, words: list[str]) -> int:
+def numMatchingSubseq(S, words):
+    matched_count = 0
+
+    for word in words:
+        pos = 0
+
+        for i in range(len(word)):
+            # Find matching position for each character
+            found_pos = S[pos:].find(word[i])
+            if found_pos < 0:
+                matched_count -= 1
+                break
+            else:
+                pos += found_pos + 1
+
+        matched_count += 1
+
+    return matched_count
+
+def dictModule():
+
+    # Counter
+    a = [1,1,1,2,2,2,2,3,3,3,4,4,4,4,4,5,5,5]
+    # Count a item and return Dict type
+    b = collections.Counter(a)
+    print(b)
+    # return 2 items in dict
+    print(b.most_common(2))
+
 if __name__ == "__main__":
 
     # list_comp()
     # generator_test()
-    print_test()
+    # print_test()
+    # S = 'hi hello world'
+    # find_word = ['hi', 'world']
+    # print(numMatchingSubseq(S, find_word))
+    dictModule()
+
+
+
