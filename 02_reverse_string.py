@@ -1,4 +1,4 @@
-
+from typing import List
 
 class Solution:
 
@@ -21,7 +21,7 @@ class Solution:
 
         return "".join(list_str)
 
-    def reverseString_func(self, s):
+    def reverseString_func(self, s: List[str]):
 
         # reverse 함수는 list 에서만 사용가
         # list(s).reverse()
@@ -35,4 +35,6 @@ if __name__ == "__main__":
     S = 'Apple is delicious'
 
     print("reverseString_func : ", T.reverseString_func(S))
+
+
 
